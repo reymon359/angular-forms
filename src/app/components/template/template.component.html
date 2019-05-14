@@ -1,6 +1,6 @@
 <h4>Anfular Forms <small>template</small></h4>
 <hr>
-<form>
+<form (ngSubmit)="save()" novalidate="">
 
   <div>
 
@@ -10,7 +10,11 @@
 
         <input class="form-control"
                type="text"
-               placeholder="Name">
+               placeholder="Name"
+               name="name"
+               ngModel
+               minlength="5"
+               required>
       </div>
     </div>
 
