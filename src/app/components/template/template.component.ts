@@ -17,7 +17,9 @@ export class TemplateComponent {
     name: null,
     surname: null,
     email: null,
-    country: ""
+    country: "",
+    sex: 'man',
+    accept:false
   }
 
   countries = [{
@@ -26,8 +28,9 @@ export class TemplateComponent {
   }, {
     code: "ESP",
     name: "Spain"
-  } ]
+  }];
 
+  sexs = ['man', 'woman', 'other'];
 
   constructor() { }
 
