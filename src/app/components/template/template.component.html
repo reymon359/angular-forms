@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div class="form-group row"  [ngClass]="{'has-danger': surname.errors?.required && surname.touched}">
+    <div class="form-group row" [ngClass]="{'has-danger': surname.errors?.required && surname.touched}">
       <label class="col-2 col-form-label">Surname</label>
       <div class="col-8">
         <input class="form-control" type="text" placeholder="Surname" name="surname" [(ngModel)]="user.surname" required #surname="ngModel">
@@ -24,17 +24,25 @@
 
   </div>
 
-  <div class="form-group row"   [ngClass]="{'has-danger': (email.errors?.required || email.errors?.pattern) && email.touched}">
+  <div class="form-group row" [ngClass]="{'has-danger': (email.errors?.required || email.errors?.pattern) && email.touched}">
     <label class="col-2 col-form-label">Email</label>
     <div class="col-md-8">
       <input class="form-control" type="email" placeholder="Email" name="email" [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #email="ngModel">
       <div *ngIf="email.errors?.required" class="form-control-feedback">This field is required</div>
       <div *ngIf="email.errors?.pattern" class="form-control-feedback">This field has not a mail format</div>
     </div>
-
   </div>
 
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Country</label>
+    <div class="col-md-8">
+      <select class="form-control" [(ngModel)]="user.country" name="country">
+        <option value="">Select a country</option>
+        <option *ngFor="let country of countries" [value]="country.code">{{country.name}}</option>
+      </select>
 
+    </div>
+  </div>
 
   <div class="form-group row">
     <label class="col-2 col-form-label">&nbsp;</label>
