@@ -16,7 +16,9 @@
     <div class="form-group row">
       <label class="col-2 col-form-label">Surname</label>
       <div class="col-8">
-        <input class="form-control" type="text" placeholder="Surname" name="surname" [(ngModel)]="user.surname" required>
+        <input class="form-control" type="text" placeholder="Surname" name="surname" [(ngModel)]="user.surname" required #surname="ngModel">
+        <div *ngIf="surname.errors?.required">This field is required</div>
+
       </div>
     </div>
 
@@ -25,8 +27,11 @@
   <div class="form-group row">
     <label class="col-2 col-form-label">Email</label>
     <div class="col-md-8">
-      <input class="form-control" type="email" placeholder="Email" name="email" [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+      <input class="form-control" type="email" placeholder="Email" name="email" [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #email="ngModel">
+      <div *ngIf="email.errors?.required">This field is required</div>
+      <div *ngIf="email.errors?.pattern">This field has not a mail format</div>
     </div>
+
   </div>
 
 
