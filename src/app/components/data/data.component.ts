@@ -54,12 +54,12 @@ export class DataComponent {
     // To detect form changes
     this.userform.controls['username'].valueChanges
       .subscribe(data => {
-        console.log(data);
+        console.log('valueChanges username:', data);
       });
 
     this.userform.controls['username'].statusChanges
       .subscribe(data => {
-        console.log(data);
+        console.log('statusChanges username:', data);
       });
   }
 
