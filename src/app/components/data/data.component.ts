@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators , FormArray} from '@angular/forms';
 
 @Component({
   selector: 'app-data',
@@ -15,7 +15,8 @@ export class DataComponent {
       name: "ramon",
       surname: "morcillo"
     },
-    email: "hellocaramelou@gmail.com"
+    email: "hellocaramelou@gmail.com",
+    hobbies: ["run","sleep", "eat"]
   };
 
 
@@ -29,13 +30,25 @@ export class DataComponent {
         'surname': new FormControl('', Validators.required)
       })
       ,
-      'email': new FormControl('', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")])
+      'email': new FormControl('', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]),
+      'hobbies': new FormArray([
+        new FormControl('run', Validators.required)
+      ])
     });
 
-    this.userform.setValue(this.user);
+    // To set the form values to the user ones
+    // this.userform.setValue(this.user);
 
 
   }
+
+  addHobby(){
+    (<FormArray>this.userform.controls['hobbies']).push(
+      new FormControl('', Validators.required)
+
+    )
+  }
+
 
   saveChanges() {
     console.log(this.userform.value);
