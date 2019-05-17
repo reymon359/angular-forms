@@ -35,7 +35,7 @@ export class DataComponent {
       'hobbies': new FormArray([
         new FormControl('run', Validators.required)
       ]),
-      'username': new FormControl('', Validators.required,this.userExists),
+      'username': new FormControl('', Validators.required, this.userExists),
       'password1': new FormControl('', Validators.required),
       'password2': new FormControl()
     });
@@ -48,7 +48,19 @@ export class DataComponent {
       Validators.required,
       // we use the .bind() because in the place the function executes the this does not exist so we have to reference it with the bind
       this.noSame.bind(this.userform)
-    ])
+    ]);
+
+
+    // To detect form changes
+    this.userform.controls['username'].valueChanges
+      .subscribe(data => {
+        console.log(data);
+      });
+
+    this.userform.controls['username'].statusChanges
+      .subscribe(data => {
+        console.log(data);
+      });
   }
 
   addHobby() {
@@ -82,14 +94,14 @@ export class DataComponent {
 
   // Validator for the username to check if it is the same as the one in the database. In this case reymon359
   userExists(control: FormControl): Promise<any> | Observable<any> {
-    let promise = new Promise( (resolve,reject)=>{
-      setTimeout(()=>{
-        if(control.value === "reymon359"){
-          resolve({exists:true})
-        }else{
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value === "reymon359") {
+          resolve({ exists: true })
+        } else {
           resolve(null)
         }
-      }, 3000)
+      }, 2000)
     })
     return promise;
 
