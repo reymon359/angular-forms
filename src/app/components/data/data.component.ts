@@ -21,7 +21,7 @@ export class DataComponent {
 
   constructor() {
 
-    console.log(this.user); 
+    console.log(this.user);
 
     this.userform = new FormGroup({
       'fullname': new FormGroup({
@@ -32,11 +32,15 @@ export class DataComponent {
       'email': new FormControl('', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")])
     });
 
+    this.userform.setValue(this.user);
+
+
   }
 
   saveChanges() {
     console.log(this.userform.value);
     console.log(this.userform);
+    this.userform.reset({ fullname: { name: "", surname: "" },  email: "" });
   }
 
 }
