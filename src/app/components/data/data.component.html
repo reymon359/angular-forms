@@ -1,7 +1,7 @@
 <h3>Angular Forms <small>data</small></h3>
 <h6>Using angular forms from the component.ts</h6>
 <hr>
-<form>
+<form [formGroup]="userform" (ngSubmit)="saveChanges()" novalidate="novalidate">
 
     <div class="form-group row">
       <label class="col-2 col-form-label">Name</label>

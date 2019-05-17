@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
   styles: []
 })
-export class DataComponent implements OnInit {
+export class DataComponent  {
 
-  constructor() { }
+    userform:FormGroup;
 
-  ngOnInit() {
+  constructor() {
+
+    this.userform= new FormGroup({
+      'name': new FormControl('Ramon'),
+      'surname': new FormControl(),
+      'email': new FormControl()
+    });
+
   }
+
+saveChanges(){
+  console.log(this.userform.value);
+  console.log(this.userform);
+}
 
 }
