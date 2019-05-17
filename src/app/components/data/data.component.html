@@ -2,13 +2,14 @@
 <h6>Using angular forms from the component.ts</h6>
 <hr>
 <form [formGroup]="userform" (ngSubmit)="saveChanges()" >
+  <div formGroupName="fullname">
 
-    <div class="form-group row" [ngClass]="{'has-danger': ! userform.get('name').valid}">
+    <div class="form-group row" [ngClass]="{'has-danger': !userform.controls['fullname'].controls['name'].valid}">
       <label class="col-2 col-form-label">Name</label>
       <div class="col-8">
         <input class="form-control" type="text" placeholder="Name" formControlName="name">
-        <div *ngIf="userform.controls['name'].errors?.required" class="form-control-feedback">The name is required</div>
-      <div *ngIf="userform.controls['name'].errors?.minlength" class="form-control-feedback">At least 3 characters</div>
+        <div *ngIf="userform.get('fullname.name').errors?.required"  class="form-control-feedback">The name is required</div>
+      <div *ngIf="userform.get('fullname.name').errors?.minlength" class="form-control-feedback">At least 3 characters</div>
       </div>
     </div>
 
@@ -18,7 +19,7 @@
         <input class="form-control" type="text" placeholder="Surname" formControlName="surname">
       </div>
     </div>
-
+</div>
   <div class="form-group row">
     <label class="col-2 col-form-label">Email</label>
     <div class="col-md-8">
