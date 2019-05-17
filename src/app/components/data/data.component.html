@@ -3,10 +3,12 @@
 <hr>
 <form [formGroup]="userform" (ngSubmit)="saveChanges()" >
 
-    <div class="form-group row">
+    <div class="form-group row" [ngClass]="{'has-danger': ! userform.get('name').valid}">
       <label class="col-2 col-form-label">Name</label>
       <div class="col-8">
         <input class="form-control" type="text" placeholder="Name" formControlName="name">
+        <div *ngIf="userform.controls['name'].errors?.required" class="form-control-feedback">The name is required</div>
+      <div *ngIf="userform.controls['name'].errors?.minlength" class="form-control-feedback">At least 3 characters</div>
       </div>
     </div>
 

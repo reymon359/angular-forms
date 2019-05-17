@@ -13,7 +13,7 @@ export class DataComponent {
   constructor() {
 
     this.userform = new FormGroup({
-      'name': new FormControl('', Validators.required),
+      'name': new FormControl('', [Validators.required, Validators.minLength(3)]),
       'surname': new FormControl('', Validators.required),
       'email': new FormControl('', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")])
     });
