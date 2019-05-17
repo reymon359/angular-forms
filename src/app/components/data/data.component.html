@@ -29,18 +29,25 @@
   </div>
 
   <div class="form-group row">
-      <label class="col-2 col-form-label">Password</label>
-      <div class="col-md-8">
-        <input class="form-control" type="password" placeholder="Password" formControlName="password1">
-      </div>
+    <label class="col-2 col-form-label">Username</label>
+    <div class="col-md-8">
+      <input class="form-control" type="text" placeholder="User" formControlName="username">
     </div>
+  </div>
 
-    <div class="form-group row">
-        <label class="col-2 col-form-label">Repeat password</label>
-        <div class="col-md-8">
-          <input class="form-control" type="password" placeholder="Repeat password" formControlName="password2">
-        </div>
-      </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Password</label>
+    <div class="col-md-8">
+      <input class="form-control" type="password" placeholder="Password" formControlName="password1">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Repeat password</label>
+    <div class="col-md-8">
+      <input class="form-control" type="password" placeholder="Repeat password" formControlName="password2">
+    </div>
+  </div>
 
   <div class="form-group row">
     <label class="col-2 col-form-label">Hobbies</label>
@@ -61,6 +68,7 @@
     </div>
   </div>
 
-UserForm is valid?  {{userform.valid}}
+  UserForm.valid {{userform.valid}} <br>
+  UserForm.status {{userform.status}} 
 </form>
 <br><br>
