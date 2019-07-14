@@ -2,73 +2,72 @@
 <h6>Using angular forms from the component.ts</h6>
 <hr>
 <form [formGroup]="userform" (ngSubmit)="saveChanges()">
-  <div formGroupName="fullname">
+    <div formGroupName="fullname">
 
-    <div class="form-group row" [ngClass]="{'has-danger': !userform.controls['fullname'].controls['name'].valid}">
-      <label class="col-2 col-form-label">Name</label>
-      <div class="col-8">
-        <input class="form-control" type="text" placeholder="Name" formControlName="name">
-        <div *ngIf="userform.get('fullname.name').errors?.required" class="form-control-feedback">The name is required</div>
-        <div *ngIf="userform.get('fullname.name').errors?.minlength" class="form-control-feedback">At least 3 characters</div>
-      </div>
+        <div class="form-group row" [ngClass]="{'has-danger': !userform.controls['fullname'].controls['name'].valid}">
+            <label class="col-2 col-form-label">Name</label>
+            <div class="col-8">
+                <input class="form-control" type="text" placeholder="Name" formControlName="name">
+                <div *ngIf="userform.get('fullname.name').errors?.required" class="form-control-feedback">The name is required</div>
+                <div *ngIf="userform.get('fullname.name').errors?.minlength" class="form-control-feedback">At least 3 characters</div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Surname</label>
+            <div class="col-8">
+                <input class="form-control" type="text" placeholder="Surname" formControlName="surname">
+            </div>
+        </div>
     </div>
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">Surname</label>
-      <div class="col-8">
-        <input class="form-control" type="text" placeholder="Surname" formControlName="surname">
-      </div>
+        <label class="col-2 col-form-label">Email</label>
+        <div class="col-md-8">
+            <input class="form-control" type="email" formControlName="email">
+        </div>
     </div>
-  </div>
 
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Email</label>
-    <div class="col-md-8">
-      <input class="form-control" type="email" formControlName="email">
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Username</label>
+        <div class="col-md-8">
+            <input class="form-control" type="text" placeholder="User" formControlName="username">
+        </div>
     </div>
-  </div>
 
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Username</label>
-    <div class="col-md-8">
-      <input class="form-control" type="text" placeholder="User" formControlName="username">
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Password</label>
+        <div class="col-md-8">
+            <input class="form-control" type="password" placeholder="Password" formControlName="password1">
+        </div>
     </div>
-  </div>
 
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Password</label>
-    <div class="col-md-8">
-      <input class="form-control" type="password" placeholder="Password" formControlName="password1">
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Repeat password</label>
+        <div class="col-md-8">
+            <input class="form-control" type="password" placeholder="Repeat password" formControlName="password2">
+        </div>
     </div>
-  </div>
 
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Repeat password</label>
-    <div class="col-md-8">
-      <input class="form-control" type="password" placeholder="Repeat password" formControlName="password2">
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Hobbies</label>
+
+        <div class="col-md-8" formArrayName="hobbies">
+            <input *ngFor="let hobby of userform.controls['hobbies'].controls; let i = index" type="text" class="form-control" [formControlName]="i">
+        </div>
+        <button (click)="addHobby()" type="button" class="btn btn-primary m-2"> New </button>
+
     </div>
-  </div>
 
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Hobbies</label>
-
-    <div class="col-md-8" formArrayName="hobbies">
-      <input *ngFor="let hobby of userform.controls['hobbies'].controls; let i = index" type="text" class="form-control" [formControlName]="i">
-    </div>
-    <button (click)="addHobby()" type="button" class="btn btn-primary"> New </button>
-
-  </div>
-
-  <div class="form-group row">
-    <label class="col-2 col-form-label">&nbsp;</label>
-    <div class="input-group col-md-8">
-      <button type="submit" class="btn btn-outline-primary">
+    <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group col-md-8">
+            <button type="submit" class="btn btn-outline-primary">
         Save 
       </button>
+        </div>
     </div>
-  </div>
 
-  UserForm.valid {{userform.valid}} <br>
-  UserForm.status {{userform.status}}
+    UserForm.valid {{userform.valid}} <br> UserForm.status {{userform.status}}
 </form>
 <br><br>
