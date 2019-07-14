@@ -69,7 +69,13 @@
       </button>
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <div [ngClass]="{'alert-warning': !userform.valid , 'alert-success': userform.valid}" class="alert " role="alert">
+                UserForm.valid {{userform.valid}} <br> UserForm.status {{userform.status}}
+            </div>
 
-    UserForm.valid {{userform.valid}} <br> UserForm.status {{userform.status}}
+        </div>
+    </div>
 </form>
 <br><br>
