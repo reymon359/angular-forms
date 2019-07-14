@@ -13,11 +13,11 @@ export class DataComponent {
 
   user: Object = {
     fullname: {
-      name: "ramon",
-      surname: "morcillo"
+      name: 'ramon',
+      surname: 'morcillo'
     },
-    email: "hellocaramelou@gmail.com",
-    hobbies: ["run", "sleep", "eat"]
+    email: 'hellocaramelou@gmail.com',
+    hobbies: ['run', 'sleep', 'eat']
   };
 
 
@@ -31,7 +31,7 @@ export class DataComponent {
         'surname': new FormControl('', [Validators.required, this.noSalchipapa])
       })
       ,
-      'email': new FormControl('', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]),
+      'email': new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
       'hobbies': new FormArray([
         new FormControl('run', Validators.required)
       ]),
@@ -96,7 +96,7 @@ export class DataComponent {
   userExists(control: FormControl): Promise<any> | Observable<any> {
     let promise = new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (control.value === "reymon359") {
+        if (control.value === 'reymon359') {
           resolve({ exists: true })
         } else {
           resolve(null)
@@ -111,7 +111,7 @@ export class DataComponent {
   saveChanges() {
     console.log(this.userform.value);
     console.log(this.userform);
-    this.userform.reset({ fullname: { name: "", surname: "" }, email: "" });
+    this.userform.reset({ fullname: { name: '', surname: '' }, email: '' });
   }
 
 }

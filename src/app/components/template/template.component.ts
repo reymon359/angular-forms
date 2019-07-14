@@ -13,29 +13,26 @@ import { NgForm } from '@angular/forms';
 export class TemplateComponent {
 
 
-  user: object = {
+  user = {
     name: null,
     surname: null,
     email: null,
-    country: "",
+    country: '',
     sex: 'man',
-    accept:false
+    accept: false
   }
 
   countries = [{
-    code: "FR",
-    name: "France"
+    code: 'FR',
+    name: 'France'
   }, {
-    code: "ESP",
-    name: "Spain"
+    code: 'ESP',
+    name: 'Spain'
   }];
 
   sexs = ['man', 'woman', 'other'];
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   save(form: NgForm) {
     console.log('Form posted');
