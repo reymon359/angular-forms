@@ -82,7 +82,7 @@ export class DataComponent {
 
   // Another custom validator for passwords
   noSame(control: FormControl): { [s: string]: boolean } {
-    let userform: any = this;
+    const userform: any = this;
 
     if (control.value !== userform.controls['password1'].value) {
       return {
@@ -94,7 +94,7 @@ export class DataComponent {
 
   // Validator for the username to check if it is the same as the one in the database. In this case reymon359
   userExists(control: FormControl): Promise<any> | Observable<any> {
-    let promise = new Promise((resolve, reject) => {
+    const promise = new Promise((resolve, reject) => {
       setTimeout(() => {
         if (control.value === 'reymon359') {
           resolve({ exists: true })
