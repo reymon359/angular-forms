@@ -64,11 +64,18 @@
     <div class="form-group row">
         <label class="col-2 col-form-label">Accept</label>
         <div class="col-md-8">
-            <label class="custom-control custom-checkbox">
-        <input [(ngModel)]="user.accept" type="checkbox" name="accept" class="custom-control-input" required>
-        <span class="custom-control-indicator"></span>
-        <span class="custom-control-description">Accept the conditions</span>
-      </label>
+            <!-- <label class="custom-control custom-checkbox">
+              <input [(ngModel)]="user.accept" type="checkbox" name="accept" class="custom-control-input" required>
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Accept the conditions</span>
+            </label> -->
+            <div class="form-check">
+                <input [(ngModel)]="user.accept" class="form-check-input" type="checkbox" name="accept" required>
+                <label class="form-check-label" for="defaultCheck1">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">Accept the conditions</span> 
+                </label>
+            </div>
         </div>
     </div>
 
