@@ -1,4 +1,6 @@
-# Forms
+# Angular Forms
+
+App to show how forms work in Angular and what we can do with them.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
 
